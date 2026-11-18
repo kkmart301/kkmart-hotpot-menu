@@ -96,6 +96,15 @@
     .tick-box.checked{background:var(--red);border-color:var(--red)}
 
     @media(max-width:430px){.mstrap .en{display:block;margin-left:0;margin-top:2px}}
+
+    @keyframes tickPop{0%{transform:scale(.72)}50%{transform:scale(1.26)}100%{transform:scale(1)}}
+    @keyframes bump{0%,100%{transform:scale(1)}45%{transform:scale(1.09)}}
+    .fly-dot{position:fixed;width:14px;height:14px;border-radius:50%;pointer-events:none;z-index:999;
+      background:radial-gradient(circle,#FFD27D 0%,var(--red) 75%);
+      box-shadow:0 2px 8px rgba(184,41,30,.45);
+      transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .45s ease}
+    .tick-box.checked{animation:tickPop .28s cubic-bezier(.34,1.56,.64,1)}
+    .total-line.bump{animation:bump .28s ease}
     .empty{text-align:center;color:var(--muted);padding:28px 0;font-size:13px}
 
     .foot{margin-top:16px;background:var(--forest);color:var(--gold-light);text-align:center;
@@ -210,20 +219,6 @@
 
       <div class="cart-preview" id="cartPreview"></div>
 
-      <label class="discount-check">
-        <input type="checkbox" id="firstOrderDiscount" onchange="updateSummary(false)" />
-        套用【新客首次落單 / 九龍灣工作室自取 9 折】優惠
-      </label>
-
-      <div class="form-group">
-        <label>取貨方式</label>
-        <div class="radio-pills" id="pickupPills">
-          <div class="radio-pill active" onclick="selectPickup(this, '西貢街市P1鋪自取')">西貢門市自取</div>
-          <div class="radio-pill" onclick="selectPickup(this, '九龍灣鴻力工作室自取（享9折）')">九龍灣工作室自取</div>
-          <div class="radio-pill" onclick="selectPickup(this, '送貨上門')">送貨上門</div>
-        </div>
-      </div>
-
       <div class="form-group">
         <label>顧客姓名 / 聯絡電話</label>
         <div style="display:flex; gap:8px;">
@@ -233,8 +228,8 @@
       </div>
 
       <div class="form-group">
-        <label>取貨時間 / 送貨地址及備註</label>
-        <input type="text" id="custNote" class="form-control" placeholder="例：今晚 6:30 取貨，文昌雞要切片" />
+        <label>送貨時間</label>
+        <input type="text" id="custNote" class="form-control" placeholder="例：星期二" />
       </div>
 
       <button class="btn-wa" onclick="sendWhatsApp()">一鍵經 WhatsApp 發送訂單 (6365 9992)</button>
@@ -542,7 +537,6 @@
       }
     ];
 
-    let pickupMethod = "西貢街市P1鋪自取";
     const cart = {};
     const itemMap = {};
     let toastTimer = null;
@@ -745,7 +739,7 @@
         const p = getUnitPrice(itemMap[code]);
         if (isNumericPrice(p)) totalAmt += p * qty; else hasTbd = true;
       });
-      const is90 = document.getElementById("firstOrderDiscount").checked;
+      const is90 = false;
       const finalAmt = is90 ? Math.round(totalAmt * 0.9 * 10) / 10 : totalAmt;
       const totalEl = document.getElementById("bottomTotal");
       totalEl.textContent = `已選 ${totalQty} 件 ｜ 預計 HK$${finalAmt}${hasTbd ? ' (+待報價)' : ''}`;
@@ -774,16 +768,6 @@
       el.innerHTML = lines.join("");
     }
 
-    function selectPickup(el, val) {
-      pickupMethod = val;
-      document.querySelectorAll("#pickupPills .radio-pill").forEach(p => p.classList.remove("active"));
-      el.classList.add("active");
-      if (val.includes("9折")) {
-        document.getElementById("firstOrderDiscount").checked = true;
-        updateSummary(false);
-      }
-    }
-
     function openModal() { updateSummary(false); document.getElementById("orderModal").classList.add("open"); }
     function closeModal() { document.getElementById("orderModal").classList.remove("open"); }
 
@@ -791,7 +775,7 @@
       const name = document.getElementById("custName").value.trim() || "未填寫";
       const phone = document.getElementById("custPhone").value.trim() || "未填寫";
       const note = document.getElementById("custNote").value.trim() || "無";
-      const is90 = document.getElementById("firstOrderDiscount").checked;
+      const is90 = false;
       let totalQty = 0, totalAmt = 0, hasTbd = false;
       const itemLines = [];
       Object.entries(cart).forEach(([code, qty]) => {
@@ -804,14 +788,13 @@
       const finalAmt = is90 ? Math.round(totalAmt * 0.9 * 10) / 10 : totalAmt;
       return [
         "【🍲 江記 KK MART 打邊爐點心紙訂單】",
-        `取貨方式：${pickupMethod}`,
         `顧客姓名：${name} ｜ 電話：${phone}`,
         "——————————",
         ...itemLines,
         "——————————",
         `合共份數：${totalQty} 份`,
         `預計金額：HK$${finalAmt}${is90 ? "（已套用 9 折優惠）" : ""}${hasTbd ? "（未含待報價品項）" : ""}`,
-        `備註 / 時間：${note}`
+        `送貨時間：${note}`
       ].join("\n");
     }
 
