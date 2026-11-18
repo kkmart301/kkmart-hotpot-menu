@@ -4,723 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>江記 KK MART · 精選打邊爐食材點心紙</title>
-  <style>
-    :root {
-      --forest: #234232;
-      --forest-dark: #162B20;
-      --red: #B8291E;
-      --red-dark: #8F1B12;
-      --gold: #B08946;
-      --gold-light: #EFE1C6;
-      --olive: #6C7D47;
-      --amber-logo: #F0A32F;
-      --paper: #F6F3EC;
-      --card: #FFFFFF;
-      --ink: #1F2622;
-      --muted: #5F6962;
-      --border: #D8D1C1;
-      --suggest-bg: #FCF8EE;
-      --safe-bottom: env(safe-area-inset-bottom, 0px);
-      --safe-top: env(safe-area-inset-top, 0px);
+  <style>:root{
+      --forest:#234232; --forest-dark:#162B20; --red:#B8291E; --red-dark:#8F1B12;
+      --gold:#B08946; --gold-light:#EFE1C6; --olive:#6C7D47; --amber:#F0A32F;
+      --page:#FDFCF4; --ink:#1F2622; --muted:#5F6962; --border:#D8D1C1;
+      --rowline:#E9DDC6; --sub:#F1EBDC; --sug:#FAF1DE; --box:#C6B295;
+      --safe-bottom:env(safe-area-inset-bottom,0px);
     }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background-color:var(--page);color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"PingFang HK","Noto Sans TC",sans-serif;
+      padding-bottom:calc(94px + var(--safe-bottom));overflow-x:hidden;touch-action:manipulation;
+      background-image:radial-gradient(rgba(35,66,50,.035) 1px,transparent 1px);
+      background-size:22px 22px;
+    }
+    .page-frame{max-width:920px;margin:8px auto;background:var(--page);
+      border:2px solid var(--forest);padding:4px;box-shadow:0 8px 26px rgba(35,66,50,.10)}
+    @media(max-width:600px){.page-frame{margin:4px;border-width:1.5px;padding:3px}}
+    .page-inner{border:1px solid var(--forest);padding:clamp(10px,2.6vw,18px);position:relative;overflow:hidden}
 
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Songti TC", "Noto Serif TC", "PingFang HK", -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--paper);
-      color: var(--ink);
-      padding-top: var(--safe-top);
-      padding-bottom: calc(96px + var(--safe-bottom));
-      touch-action: manipulation;
-      background-image:
-        radial-gradient(rgba(176, 137, 70, 0.08) 1px, transparent 1px),
-        radial-gradient(rgba(35, 66, 50, 0.04) 1px, transparent 1px);
-      background-size: 22px 22px;
-      background-position: 0 0, 11px 11px;
-      overflow-x: hidden;
-    }
+    /* masthead — same stack as the printed sheet */
+    .masthead{text-align:center;padding:6px 2px 8px;background:rgba(248,242,226,.75);
+      border-bottom:1px solid var(--gold)}
+    .mlogo{width:clamp(46px,12vw,60px);height:auto;display:block;margin:2px auto 4px}
+    .mtitle{margin:0;font-family:"Songti TC","Noto Serif TC",serif;font-weight:800;
+      font-size:clamp(23px,6.4vw,29px);letter-spacing:.06em;color:var(--ink)}
+    .mstrap{margin-top:3px;display:block;font-size:clamp(9px,2.4vw,11px);letter-spacing:.14em;color:var(--forest)}
+    .mstrap .en{color:var(--gold);letter-spacing:.16em;margin-left:6px}
+    .mhot{margin-top:5px;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+    .mhot .sns{display:inline}
+    @media(max-width:420px){.mhot .sep{display:none}.mhot .sns{display:block;margin-top:2px}}
+    .mhot b{font-family:"Songti TC",serif;font-size:17px;color:var(--red);letter-spacing:.02em}
 
-    @keyframes leafSway {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(3.5deg) scale(1.03); }
-    }
-    @keyframes leafSwayFlip {
-      0%, 100% { transform: scaleX(-1) rotate(0deg) scale(1); }
-      50% { transform: scaleX(-1) rotate(3.5deg) scale(1.03); }
-    }
-    @keyframes shimmer {
-      0% { transform: translateX(-140%) skewX(-20deg); }
-      100% { transform: translateX(240%) skewX(-20deg); }
-    }
-    @keyframes tickPop {
-      0% { transform: scale(0.75); }
-      50% { transform: scale(1.24); }
-      100% { transform: scale(1); }
-    }
-    @keyframes bump {
-      0%, 100% { transform: scale(1); }
-      45% { transform: scale(1.09); }
-    }
-    @keyframes floatUpFade {
-      0% { opacity: 0; transform: translateY(18px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    /* fill-in strip */
+    .fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;border:1px solid var(--gold);padding:7px 9px;margin:8px 0 2px;
+      background:var(--page);font-size:12.5px}
+    .fields label{display:flex;align-items:baseline;gap:5px;min-width:0;color:var(--forest);font-weight:700}
+    .fields input{flex:1;width:100%;min-width:0;border:0;border-bottom:1px solid var(--border);
+      background:transparent;font-size:12.5px;padding:2px 1px;color:var(--ink);outline:none}
 
-    .page-frame {
-      max-width: 920px;
-      margin: 6px auto;
-      background: var(--paper);
-      border: 2px solid var(--forest);
-      padding: 4px;
-      box-shadow: 0 8px 28px rgba(35, 66, 50, 0.12);
-    }
-    @media (max-width: 600px) {
-      .page-frame { margin: 4px; border-width: 1.5px; padding: 3px; }
-    }
-    .page-inner {
-      border: 1px solid var(--forest);
-      padding: clamp(10px, 2.5vw, 18px);
-      position: relative;
-      overflow: hidden;
-    }
+    /* sticky controls */
+    .sticky-bar{position:sticky;top:0;z-index:50;background:rgba(253,252,244,.96);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      border-bottom:1.5px solid var(--forest);padding:8px;margin:6px -10px 10px}
+    .controls-top{display:flex;gap:6px;align-items:center;margin-bottom:8px}
+    .search-input{flex:1;min-width:0;height:34px;border:1.2px solid var(--forest);border-radius:8px;
+      padding:0 10px;font-size:13px;background:#fff;color:var(--ink);outline:none}
+    .cat-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+    .cat-tabs::-webkit-scrollbar{display:none}
+    .cat-tab{white-space:nowrap;padding:5px 11px;border-radius:16px;border:1px solid var(--gold);
+      background:var(--page);color:var(--forest);font-size:12px;font-weight:700;text-decoration:none}
+    .cat-tab.active{background:var(--red);color:#fff;border-color:var(--red)}
 
-    .leaf-corner {
-      position: absolute;
-      width: clamp(58px, 14vw, 84px);
-      height: clamp(58px, 14vw, 84px);
-      opacity: 0.78;
-      pointer-events: none;
-      transform-origin: top left;
-    }
-    .leaf-tl { top: -6px; left: -6px; animation: leafSway 6s ease-in-out infinite; }
-    .leaf-tr { top: -6px; right: -6px; transform-origin: top right; animation: leafSwayFlip 6.5s ease-in-out infinite; }
+    /* category block: one hand-drawn picture + colour zone, as on the sheet */
+    .cat-card{position:relative;margin:14px 0;border-radius:7px;overflow:hidden;isolation:isolate;
+      opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s cubic-bezier(.22,1,.36,1)}
+    .cat-card.visible{opacity:1;transform:translateY(0)}
+    .cat-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.42;z-index:-2}
+    .cat-bg::after{content:"";position:absolute;inset:0;background:var(--tint,transparent);opacity:.18}
 
-    .flyer-header {
-      text-align: center;
-      padding: 4px 6px 10px;
-      position: relative;
-      z-index: 2;
-      animation: floatUpFade 0.6s ease-out both;
-    }
-    .slogan-zh {
-      font-size: clamp(17px, 4.5vw, 22px);
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: clamp(2px, 0.8vw, 4px);
-      margin: 0;
-    }
-    .slogan-en {
-      font-size: clamp(9.5px, 2.5vw, 11.5px);
-      font-weight: 700;
-      color: var(--forest);
-      letter-spacing: 1.5px;
-      margin: 3px 0 8px;
-      padding-bottom: 6px;
-      border-bottom: 1.5px solid var(--forest);
-      display: inline-block;
-    }
-    .logo-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 4px 0 8px;
-    }
-    .logo-house {
-      width: clamp(42px, 11vw, 52px);
-      height: clamp(38px, 10vw, 46px);
-      margin-bottom: 3px;
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .logo-center:active .logo-house { transform: scale(1.1) rotate(-4deg); }
-    .logo-zh {
-      font-size: clamp(22px, 5.5vw, 27px);
-      font-weight: 900;
-      color: var(--ink);
-      line-height: 1;
-      letter-spacing: 2px;
-    }
-    .logo-en { font-size: 10px; font-weight: 800; color: var(--ink); letter-spacing: 1.5px; margin-top: 2px; }
+    .band{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--forest);
+      color:#fff;padding:9px 10px;border-bottom:1px solid var(--gold)}
+    .chip{background:var(--red);border-radius:4px;font-size:12px;font-weight:800;padding:2px 7px;font-style:normal}
+    .ctitle{font-size:17px;font-weight:800;letter-spacing:.1em}
 
-    .offer-box {
-      border: 1.5px solid var(--forest);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.82);
-      padding: 10px 10px 9px;
-      margin: 6px auto 10px;
-      max-width: 640px;
-      position: relative;
-      overflow: hidden;
-    }
-    .offer-box::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 45%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
-      animation: shimmer 4.5s infinite ease-in-out;
-      pointer-events: none;
-    }
-    .offer-title {
-      font-size: clamp(18px, 5vw, 23px);
-      font-weight: 900;
-      color: var(--red);
-      letter-spacing: 1.5px;
-      margin: 0;
-    }
-    .offer-sub { font-size: 10.5px; font-weight: 700; color: var(--red-dark); margin: 2px 0 4px; letter-spacing: 0.8px; }
-    .offer-detail { font-size: clamp(13px, 3.6vw, 15.5px); font-weight: 800; color: var(--red); }
-    .offer-detail span.nine {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 23px;
-      height: 23px;
-      border-radius: 50%;
-      background: var(--red);
-      color: #fff;
-      font-size: 14px;
-      margin: 0 2px;
-      box-shadow: 0 2px 6px rgba(184, 41, 30, 0.35);
-    }
-    .hotline-line { margin-top: 5px; font-size: 13px; font-weight: 800; color: var(--red-dark); }
-    .hotline-line a { color: var(--red); text-decoration: none; font-size: 15.5px; border-bottom: 1px dashed var(--red); }
+    .subband{background:var(--sub);color:var(--forest);font-weight:800;font-size:12.5px;
+      text-align:center;padding:7px 8px;border-left:3px solid var(--forest);letter-spacing:.04em}
 
-    .hero-wrap {
-      margin: 8px 0 10px;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1.5px solid var(--gold);
-      background: #EFE9DC;
-      position: relative;
-      cursor: zoom-in;
-    }
-    .hero-wrap img {
-      width: 100%;
-      height: clamp(150px, 38vw, 240px);
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .hero-wrap:hover img { transform: scale(1.02); }
-    .hero-caption {
-      background: rgba(35, 66, 50, 0.92);
-      color: var(--gold-light);
-      font-size: clamp(10.5px, 2.8vw, 12px);
-      padding: 6px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-    }
+    .items-grid{display:block}
+    .item-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto 62px;align-items:center;
+      gap:8px;padding:7px 9px;border-bottom:1px solid var(--rowline)}
+    .item-row.suggested{background:rgba(250,241,222,.55);box-shadow:inset 2px 0 0 var(--gold)}
+    .item-row.selected{background:rgba(184,41,30,.055)}
+    .item-code{font-size:10px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+    .item-name{font-size:13.5px;line-height:1.35;color:var(--ink)}
+    .badge-sug{font-size:9.5px;font-weight:700;color:var(--gold);margin-left:5px;
+      border:1px solid rgba(176,137,70,.55);border-radius:3px;padding:0 3px;vertical-align:1px}
+    .item-price{font-size:12.5px;font-weight:700;color:var(--red-dark);text-align:right;white-space:nowrap;line-height:1.15}
+    .item-price small{display:block;font-size:9.5px;font-weight:600;color:var(--muted);letter-spacing:0}
+    .item-price.tbd{color:var(--muted);font-weight:500}
+    .item-ctrl{display:flex;align-items:center;gap:6px;justify-content:flex-end}
+    .qty-stepper{display:none;align-items:center;border:1px solid var(--forest);border-radius:5px;overflow:hidden;background:var(--page)}
+    .qty-stepper.show{display:flex}
+    .qty-stepper button{width:24px;height:24px;border:0;background:var(--sub);color:var(--forest);font-size:15px;font-weight:800;line-height:1}
+    .qty-val{min-width:20px;text-align:center;font-size:12.5px;font-weight:800}
+    .tick-box{width:24px;height:24px;border:1px solid var(--box);border-radius:4px;background:var(--page);
+      display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#fff}
+    .tick-box.checked{background:var(--red);border-color:var(--red)}
 
-    .services-strip {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 4px;
-      margin: 10px 0 4px;
-      padding: 8px 2px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .svc-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .svc-circle {
-      width: clamp(32px, 8.5vw, 40px);
-      height: clamp(32px, 8.5vw, 40px);
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: clamp(14px, 4vw, 18px);
-      margin-bottom: 3px;
-      transition: transform 0.25s ease;
-    }
-    .svc-item:active .svc-circle { transform: scale(1.12); }
-    .svc-label {
-      font-size: clamp(8.5px, 2.3vw, 10px);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.22;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-    }
+    @media(max-width:430px){.mstrap .en{display:block;margin-left:0;margin-top:2px}}
+    .empty{text-align:center;color:var(--muted);padding:28px 0;font-size:13px}
 
-    .sticky-bar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(246, 243, 236, 0.96);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1.5px solid var(--forest);
-      padding: 8px 8px;
-      margin: 6px -10px 12px;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-    }
-    .controls-top { display: flex; gap: 6px; align-items: center; margin-bottom: 8px; }
-    .search-input {
-      flex: 1;
-      min-width: 0;
-      height: 36px;
-      border: 1.2px solid var(--forest);
-      border-radius: 8px;
-      padding: 0 10px;
-      font-size: 13.5px;
-      background: #fff;
-      color: var(--ink);
-      outline: none;
-    }
-    .price-mode {
-      display: flex;
-      border: 1.2px solid var(--forest);
-      border-radius: 8px;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: #fff;
-    }
-    .price-mode button {
-      border: none;
-      background: transparent;
-      padding: 7px 9px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--forest);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .price-mode button.active { background: var(--forest); color: #fff; }
-    .cat-tabs {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 2px;
-    }
-    .cat-tabs::-webkit-scrollbar { display: none; }
-    .cat-tab {
-      white-space: nowrap;
-      padding: 6px 12px;
-      border-radius: 18px;
-      border: 1px solid var(--gold);
-      background: #fff;
-      color: var(--forest);
-      font-size: 12.5px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .cat-tab.active {
-      background: var(--red);
-      color: #fff;
-      border-color: var(--red);
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(184, 41, 30, 0.28);
-    }
+    .foot{margin-top:16px;background:var(--forest);color:var(--gold-light);text-align:center;
+      font-size:11.5px;padding:11px 8px;border-top:2px solid var(--gold);letter-spacing:.04em}
 
-    .cat-card {
-      background: var(--card);
-      border: 1.5px solid var(--forest);
-      border-radius: 10px;
-      margin-bottom: 16px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(35, 66, 50, 0.08);
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-      scroll-margin-top: 96px;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .cat-card.visible { opacity: 1; transform: translateY(0); }
+    .toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-18px);
+      background:rgba(35,66,50,.94);color:var(--gold-light);padding:7px 14px;border-radius:20px;
+      border:1px solid var(--gold);font-size:12.5px;font-weight:700;opacity:0;pointer-events:none;
+      z-index:150;transition:opacity .25s,transform .25s;white-space:nowrap}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-    .cat-header {
-      background: var(--forest);
-      color: #fff;
-      padding: 9px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      border-bottom: 2px solid var(--gold);
-    }
-    .cat-header-left { display: flex; align-items: center; gap: 8px; }
-    .cat-num {
-      background: var(--red);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 4px;
-      border: 1px solid var(--gold-light);
-    }
-    .cat-title { font-size: 16px; font-weight: 800; letter-spacing: 1px; }
-    .cat-sub { font-size: 11px; color: var(--gold-light); text-align: right; }
+    .float-tools{position:fixed;left:12px;bottom:calc(84px + var(--safe-bottom));display:flex;
+      flex-direction:column;gap:8px;z-index:70}
+    @media(max-width:600px){.float-tools{display:none}}
+    .float-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--gold);
+      background:rgba(253,252,244,.94);color:var(--forest);font-size:15px;font-weight:800;
+      box-shadow:0 3px 10px rgba(0,0,0,.12)}
 
-    .cat-photo-wrap {
-      position: relative;
-      background: #233329;
-      cursor: zoom-in;
-      border-bottom: 1.5px solid var(--gold);
-      overflow: hidden;
-    }
-    .cat-photo-wrap img {
-      width: 100%;
-      height: clamp(130px, 34vw, 175px);
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .cat-photo-wrap:active img { transform: scale(1.03); }
-    .cat-photo-badge {
-      position: absolute;
-      right: 8px;
-      bottom: 8px;
-      background: rgba(35, 66, 50, 0.86);
-      color: var(--gold-light);
-      font-size: 10.5px;
-      padding: 3px 8px;
-      border-radius: 12px;
-      border: 1px solid var(--gold);
-    }
+    .bottom-bar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:var(--forest);color:#fff;
+      border-top:2px solid var(--gold);padding:10px 14px calc(10px + var(--safe-bottom));
+      display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .total-line{font-size:13.5px;font-weight:800;color:var(--gold-light)}
+    .sub-line{font-size:11px;color:rgba(255,255,255,.82);margin-top:2px}
+    .order-btn{background:var(--red);color:#fff;border:1px solid var(--gold-light);border-radius:8px;
+      padding:10px 15px;font-size:14px;font-weight:800;white-space:nowrap}
+    .order-btn:disabled{opacity:.5}
 
-    .subcat-bar {
-      background: #EFEADF;
-      border-left: 4px solid var(--forest);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 6px 10px;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--forest);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .subcat-bar span.col-hint { font-size: 10.5px; font-weight: 500; color: var(--muted); }
-
-    .items-grid { display: grid; grid-template-columns: 1fr; }
-    @media (min-width: 680px) {
-      .items-grid { grid-template-columns: 1fr 1fr; }
-      .item-row:nth-child(odd) { border-right: 1px solid #EDE7DA; }
-    }
-
-    .item-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 10px;
-      border-bottom: 1px solid #EDE7DA;
-      gap: 8px;
-      transition: background-color 0.2s ease, transform 0.15s ease;
-    }
-    .item-row.suggested { background: var(--suggest-bg); }
-    .item-row.selected { background: #FDF0ED; }
-    .item-row:active { background: #F7EFE0; }
-
-    .item-info { flex: 1; min-width: 0; cursor: pointer; }
-    .item-top { display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; }
-    .item-code { font-size: 11px; color: var(--muted); font-family: monospace; }
-    .item-name { font-size: clamp(13.5px, 3.6vw, 14.5px); font-weight: 700; color: var(--ink); word-break: break-word; }
-    .badge-sug {
-      font-size: 10px;
-      background: #F1E4C6;
-      color: #825614;
-      padding: 1px 5px;
-      border-radius: 4px;
-      font-weight: 700;
-    }
-    .item-price { margin-top: 3px; font-size: 12.5px; font-weight: 700; color: var(--red-dark); }
-    .item-price.tbd { color: #8F836C; font-weight: 500; }
-
-    .item-ctrl { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-    .tick-box {
-      width: 28px;
-      height: 28px;
-      border: 2px solid var(--red);
-      border-radius: 5px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 900;
-      color: #fff;
-      user-select: none;
-      transition: background-color 0.18s ease, border-color 0.18s ease;
-    }
-    .item-row.suggested .tick-box { border-color: var(--gold); }
-    .tick-box.checked {
-      background: var(--red);
-      border-color: var(--red);
-      animation: tickPop 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .qty-stepper {
-      display: none;
-      align-items: center;
-      border: 1.2px solid var(--forest);
-      border-radius: 6px;
-      overflow: hidden;
-      background: #fff;
-    }
-    .qty-stepper.show { display: flex; animation: floatUpFade 0.2s ease; }
-    .qty-stepper button {
-      width: 28px;
-      height: 28px;
-      border: none;
-      background: #EFEADF;
-      color: var(--forest);
-      font-size: 17px;
-      font-weight: 800;
-      cursor: pointer;
-      padding: 0;
-    }
-    .qty-stepper button:active { background: #DFD5C0; }
-    .qty-stepper span { min-width: 24px; text-align: center; font-size: 13px; font-weight: 800; }
-
-    .fly-dot {
-      position: fixed;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #FFD27D 0%, var(--red) 75%);
-      pointer-events: none;
-      z-index: 999;
-      box-shadow: 0 2px 8px rgba(184, 41, 30, 0.5);
-      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
-    }
-
-    .toast {
-      position: fixed;
-      top: calc(14px + var(--safe-top));
-      left: 50%;
-      transform: translateX(-50%) translateY(-20px);
-      background: rgba(35, 66, 50, 0.94);
-      color: var(--gold-light);
-      padding: 7px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--gold);
-      font-size: 12.5px;
-      font-weight: 700;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 150;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-      white-space: nowrap;
-    }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    .store-footer {
-      background: #fff;
-      border: 1.5px solid var(--forest);
-      border-radius: 10px;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 12px;
-      line-height: 1.55;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-    }
-    .store-footer h3 { margin: 0 0 6px; font-size: 14px; color: var(--forest); border-bottom: 1px solid var(--border); padding-bottom: 4px; }
-    .store-footer .note-red { color: var(--red); font-weight: 700; margin-top: 6px; }
-    .social-row {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px dashed var(--border);
-      font-weight: 700;
-      color: var(--forest);
-      font-size: 12px;
-    }
-
-    .float-tools {
-      position: fixed;
-      right: 12px;
-      bottom: calc(82px + var(--safe-bottom));
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      z-index: 70;
-    }
-    .float-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--forest);
-      font-size: 15px;
-      font-weight: 800;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.14);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 80;
-      background: var(--forest);
-      color: #fff;
-      border-top: 2.5px solid var(--gold);
-      padding: 10px 14px calc(10px + var(--safe-bottom));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.2);
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-    }
-    .summary-text { min-width: 0; }
-    .summary-text .total-line {
-      font-size: clamp(13.5px, 3.8vw, 15.5px);
-      font-weight: 800;
-      color: var(--gold-light);
-      display: inline-block;
-    }
-    .summary-text .total-line.bump { animation: bump 0.28s ease; }
-    .summary-text .sub-line { font-size: 11px; color: rgba(255,255,255,0.85); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .order-btn {
-      background: var(--red);
-      color: #fff;
-      border: 1.5px solid var(--gold-light);
-      border-radius: 8px;
-      padding: 10px 15px;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-      white-space: nowrap;
-      flex-shrink: 0;
-      transition: transform 0.15s ease;
-    }
-    .order-btn:active:not(:disabled) { transform: scale(0.95); }
-    .order-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      background: rgba(20, 32, 25, 0);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      pointer-events: none;
-      transition: background 0.28s ease;
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", sans-serif;
-    }
-    .modal-backdrop.open { background: rgba(20, 32, 25, 0.68); pointer-events: auto; }
-    .modal-sheet {
-      background: var(--paper);
-      width: 100%;
-      max-width: 560px;
-      max-height: 88vh;
-      overflow-y: auto;
-      border-radius: 16px 16px 0 0;
-      border-top: 3px solid var(--gold);
-      padding: 16px 16px calc(18px + var(--safe-bottom));
-      transform: translateY(105%);
-      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .modal-backdrop.open .modal-sheet { transform: translateY(0); }
-    .modal-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-    .modal-hdr h2 { margin: 0; font-size: 17px; color: var(--forest); }
-    .close-btn { background: transparent; border: none; font-size: 26px; color: var(--muted); cursor: pointer; line-height: 1; }
-    .form-group { margin-bottom: 11px; }
-    .form-group label { display: block; font-size: 12.5px; font-weight: 700; color: var(--forest); margin-bottom: 4px; }
-    .form-control { width: 100%; padding: 9px 10px; border: 1.2px solid var(--border); border-radius: 8px; font-size: 14px; background: #fff; }
-    .radio-pills { display: flex; gap: 6px; flex-wrap: wrap; }
-    .radio-pill {
-      flex: 1;
-      min-width: 92px;
-      text-align: center;
-      padding: 8px 6px;
-      border: 1.2px solid var(--border);
-      border-radius: 8px;
-      background: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .radio-pill.active { background: var(--forest); color: #fff; border-color: var(--forest); }
-    .discount-check {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: #FDF1EE;
-      border: 1px solid #E8B8B0;
-      padding: 8px 10px;
-      border-radius: 8px;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--red-dark);
-      margin-bottom: 10px;
-    }
-    .cart-preview {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 12.5px;
-      max-height: 145px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .btn-wa {
-      background: #25D366;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 13px;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      width: 100%;
-      margin-bottom: 8px;
-    }
-    .btn-copy {
-      background: #fff;
-      color: var(--forest);
-      border: 1.2px solid var(--forest);
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 13.5px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0,0,0,0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      pointer-events: none;
-      transition: background 0.25s ease;
-    }
-    .lightbox.open { background: rgba(0,0,0,0.88); pointer-events: auto; }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 86vh;
-      border-radius: 10px;
-      border: 2px solid var(--gold);
-      transform: scale(0.85);
-      opacity: 0;
-      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
-    }
-    .lightbox.open img { transform: scale(1); opacity: 1; }
+    .modal-backdrop{position:fixed;inset:0;z-index:100;background:rgba(20,32,25,0);display:flex;
+      align-items:flex-end;justify-content:center;pointer-events:none;transition:background .28s}
+    .modal-backdrop.open{background:rgba(20,32,25,.68);pointer-events:auto}
+    .modal-sheet{background:var(--page);width:100%;max-width:560px;max-height:88vh;overflow-y:auto;
+      border-radius:16px 16px 0 0;border-top:3px solid var(--gold);padding:16px 16px calc(18px + var(--safe-bottom));
+      transform:translateY(105%);transition:transform .32s cubic-bezier(.22,1,.36,1)}
+    .modal-backdrop.open .modal-sheet{transform:translateY(0)}
+    .modal-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;
+      padding-bottom:8px;border-bottom:1px solid var(--border)}
+    .modal-hdr h2{margin:0;font-size:16px;color:var(--forest)}
+    .close-btn{background:transparent;border:0;font-size:24px;color:var(--muted);line-height:1}
+    .form-group{margin-bottom:11px}
+    .form-group label{display:block;font-size:12.5px;font-weight:700;color:var(--forest);margin-bottom:4px}
+    .form-control{width:100%;padding:9px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px;background:#fff}
+    .radio-pills{display:flex;gap:6px;flex-wrap:wrap}
+    .radio-pill{flex:1;min-width:92px;text-align:center;padding:8px 6px;border:1px solid var(--border);
+      border-radius:8px;background:#fff;font-size:12px;font-weight:700}
+    .radio-pill.active{background:var(--forest);color:#fff;border-color:var(--forest)}
+    .discount-check{display:flex;align-items:center;gap:8px;background:rgba(250,241,222,.7);
+      border:1px solid #E8D7B4;padding:8px 10px;border-radius:8px;font-size:12.5px;font-weight:700;
+      color:var(--red-dark);margin-bottom:10px}
+    .cart-preview{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px;
+      font-size:12.5px;max-height:145px;overflow-y:auto;margin-bottom:10px;line-height:1.55}
+    .btn-wa{background:#25D366;color:#fff;border:0;border-radius:10px;padding:13px;font-size:15px;
+      font-weight:800;width:100%;margin-bottom:8px}
+    .btn-copy{background:#fff;color:var(--forest);border:1.2px solid var(--forest);border-radius:10px;
+      padding:10px;font-size:13.5px;font-weight:700;width:100%}
   </style>
 </head>
 <body>
@@ -729,86 +157,33 @@
 
   <div class="page-frame">
     <div class="page-inner">
-      <svg class="leaf-corner leaf-tl" viewBox="0 0 100 100" fill="none">
-        <path d="M8 85 C22 50, 45 25, 88 10" stroke="#6C7D47" stroke-width="2.2" fill="none"/>
-        <ellipse cx="26" cy="54" rx="12" ry="5" transform="rotate(-35 26 54)" fill="#7E9155"/>
-        <ellipse cx="42" cy="38" rx="13" ry="5" transform="rotate(-28 42 38)" fill="#6C7D47"/>
-        <ellipse cx="62" cy="24" rx="12" ry="4.5" transform="rotate(-18 62 24)" fill="#7E9155"/>
-        <ellipse cx="32" cy="68" rx="11" ry="4.5" transform="rotate(15 32 68)" fill="#6C7D47"/>
-        <ellipse cx="52" cy="48" rx="11" ry="4.5" transform="rotate(10 52 48)" fill="#7E9155"/>
-      </svg>
-      <svg class="leaf-corner leaf-tr" viewBox="0 0 100 100" fill="none">
-        <path d="M8 85 C22 50, 45 25, 88 10" stroke="#6C7D47" stroke-width="2.2" fill="none"/>
-        <ellipse cx="26" cy="54" rx="12" ry="5" transform="rotate(-35 26 54)" fill="#7E9155"/>
-        <ellipse cx="42" cy="38" rx="13" ry="5" transform="rotate(-28 42 38)" fill="#6C7D47"/>
-        <ellipse cx="62" cy="24" rx="12" ry="4.5" transform="rotate(-18 62 24)" fill="#7E9155"/>
-        <ellipse cx="32" cy="68" rx="11" ry="4.5" transform="rotate(15 32 68)" fill="#6C7D47"/>
-        <ellipse cx="52" cy="48" rx="11" ry="4.5" transform="rotate(10 52 48)" fill="#7E9155"/>
-      </svg>
 
-      <header class="flyer-header">
-        <h1 class="slogan-zh">精選食材 · 品質之選</h1>
-        <div class="slogan-en">PREMIUM FRESH FOOD SELECTIONS</div>
-
-        <div class="logo-center">
-          <svg class="logo-house" viewBox="0 0 64 58" fill="none">
-            <path d="M8 22 L32 4 L56 22 V46 H26 L18 54 V46 H8 Z" fill="#F0A32F" stroke="#1F2622" stroke-width="2.8" stroke-linejoin="round"/>
-            <path d="M18 17 V28 M15 17 V23 M21 17 V23 M18 28 V39" stroke="#1F2622" stroke-width="2.4" stroke-linecap="round"/>
-            <path d="M32 16 C35 16 35 28 32 28 V39 M32 16 V39" stroke="#1F2622" stroke-width="2.6" stroke-linecap="round"/>
-            <path d="M43 16 V39 M48 16 V39" stroke="#1F2622" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-          <div class="logo-zh">江記</div>
-          <div class="logo-en">KK MART</div>
-        </div>
-
-        <div class="offer-box">
-          <h2 class="offer-title">打邊爐點心紙 · 新客優惠</h2>
-          <div class="offer-sub">NEW CUSTOMER SPECIAL OFFER</div>
-          <div class="offer-detail">首次落單，全單 <span class="nine">9</span> 折 · 工作室自取即享 9 折</div>
-          <div class="hotline-line">訂購熱線 TEL / WhatsApp：<a href="https://wa.me/85263659992">6365 9992</a></div>
-        </div>
-
-        <div class="hero-wrap" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="hero-hotpot.jpg" alt="江記打邊爐精選食材總匯" onerror="this.src='https://blog.themalamarket.com/wp-content/uploads/2021/01/IMG_9347.jpeg'" />
-          <div class="hero-caption">
-            <span>🍲 嚴選騸牯手切牛 · 鮮活海產 · 秘製湯底</span>
-            <span>點擊大圖預覽 ↗</span>
-          </div>
-        </div>
-
-        <div class="services-strip">
-          <div class="svc-item"><div class="svc-circle">🧺</div><div class="svc-label">一站式優質<br>食材總匯</div></div>
-          <div class="svc-item"><div class="svc-circle">🚚</div><div class="svc-label">全港十八區<br>送貨服務</div></div>
-          <div class="svc-item"><div class="svc-circle">⏱️</div><div class="svc-label">免費送貨<br>滿額安排</div></div>
-          <div class="svc-item"><div class="svc-circle">🏪</div><div class="svc-label">門市/工作室<br>自取 9 折</div></div>
-          <div class="svc-item"><div class="svc-circle">📋</div><div class="svc-label">承接公司<br>派對訂單</div></div>
-        </div>
+      <header class="masthead">
+        <img class="mlogo" src="logo.png" alt="江記 KK MART" />
+        <h1 class="mtitle">打邊爐食材點心紙</h1>
+        <div class="mstrap">精選食材 · 品質之選 <span class="en">HOT POT ORDERING SHEET</span></div>
+        <div class="mhot"><span class="wa">WhatsApp <b>6365 9992</b></span><span class="sep">　</span><span class="sns">Instagram kkmart.hk　·　FaceBook KK mart</span></div>
       </header>
+
+      <div class="fields">
+        <label>姓名<input type="text" id="topName" placeholder="陳生"
+          oninput="document.getElementById('custName').value=this.value" /></label>
+        <label>電話<input type="tel" id="topPhone" placeholder="9123 4567"
+          oninput="document.getElementById('custPhone').value=this.value" /></label>
+        <label>送貨日期<input type="text" id="topDate" placeholder="今晚 6:30"
+          oninput="document.getElementById('custNote').value=this.value" /></label>
+      </div>
 
       <div class="sticky-bar">
         <div class="controls-top">
-          <input type="search" id="searchInput" class="search-input" placeholder="搜尋食材（如：吊龍、牛三拼、虎蝦、響鈴）" />
-          <div class="price-mode">
-            <button id="btnRetail" class="active" onclick="setPriceMode('retail')">零售價</button>
-            <button id="btnWholesale" onclick="setPriceMode('wholesale')">批發價</button>
-          </div>
+          <input type="search" id="searchInput" class="search-input" placeholder="搜尋食材（如：吊龍、牛三拼、海中蝦、響鈴）" />
         </div>
         <div class="cat-tabs" id="catTabs"></div>
       </div>
 
       <main id="menuContainer"></main>
 
-      <footer class="store-footer">
-        <h3>📍 江記 KK MART 門市與工作室資訊</h3>
-        <div><b>工作室：</b>九龍灣宏冠道6號鴻力工業中心B座1樓08室</div>
-        <div><b>門市（家禽）：</b>西貢宜春街67號西貢街市地下P1鋪</div>
-        <div class="note-red">* 工作室自取即享 9 折優惠（不可與其他優惠同時使用）</div>
-        <div class="social-row">
-          <span>📷 IG: kkmart.hk</span>
-          <span>📘 FB: KK mart</span>
-          <span>💬 WhatsApp: 6365 9992</span>
-        </div>
-      </footer>
+      <footer class="foot">WhatsApp 6365 9992　·　Instagram kkmart.hk　·　FaceBook KK mart</footer>
     </div>
   </div>
 
@@ -820,7 +195,7 @@
   <div class="bottom-bar" id="bottomBar">
     <div class="summary-text">
       <div class="total-line" id="bottomTotal">已選 0 件 ｜ 預計 HK$0</div>
-      <div class="sub-line" id="bottomSub">點擊右側正方形「□」即可直接 Tick 落單</div>
+      <div class="sub-line" id="bottomSub">點右側方格即可 Tick；長按 +/- 改份數</div>
     </div>
     <button class="order-btn" id="openOrderBtn" disabled onclick="openModal()">確認下單</button>
   </div>
@@ -828,7 +203,7 @@
   <div class="modal-backdrop" id="orderModal" onclick="if(event.target===this) closeModal()">
     <div class="modal-sheet">
       <div class="modal-hdr">
-        <h2>📋 核對江記點心紙訂單</h2>
+        <h2>核對江記點心紙訂單</h2>
         <button class="close-btn" onclick="closeModal()">&times;</button>
       </div>
 
@@ -861,68 +236,66 @@
         <input type="text" id="custNote" class="form-control" placeholder="例：今晚 6:30 取貨，文昌雞要切片" />
       </div>
 
-      <button class="btn-wa" onclick="sendWhatsApp()">💬 一鍵經 WhatsApp 發送訂單 (6365 9992)</button>
-      <button class="btn-copy" onclick="copyOrderText()">📄 複製訂單文字（手動貼上）</button>
+      <button class="btn-wa" onclick="sendWhatsApp()">一鍵經 WhatsApp 發送訂單 (6365 9992)</button>
+      <button class="btn-copy" onclick="copyOrderText()">複製訂單文字（手動貼上）</button>
     </div>
   </div>
 
-  <div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
-    <img id="lightboxImg" src="" alt="食材實拍大圖" />
-  </div>
-
-  <script>
-    const CATEGORY_PHOTOS = {
-      cat1: { src: "beef-platter.jpg", fallback: "https://images.squarespace-cdn.com/content/v1/556feb06e4b02d3071c7736e/11043e4a-ba4f-4959-a204-0fd57b55bd34/Screen+Shot+2023-02-07+at+5.41.19+PM.png", label: "手切騸牯牛七品實拍 · 點擊放大" },
-      cat2: { src: "https://www.recipetineats.com/tachyon/2023/12/Seafood-Platter_Sony-5.jpg", fallback: "", label: "鮮活海產實拍 · 點擊放大" },
-      cat3: { src: "https://images.squarespace-cdn.com/content/v1/556feb06e4b02d3071c7736e/11043e4a-ba4f-4959-a204-0fd57b55bd34/Screen+Shot+2023-02-07+at+5.41.19+PM.png", fallback: "", label: "時令蔬菜與菇菌拼盤 · 點擊放大" },
-      cat4: { src: "https://blog.themalamarket.com/wp-content/uploads/2021/01/IMG_9347.jpeg", fallback: "", label: "滋補與鴛鴦鍋底 · 點擊放大" },
-      cat5: { src: "https://nomadette.com/wp-content/uploads/2025/01/Hot-Pot-Dipping-Sauces-500x500.jpg", fallback: "", label: "秘製九宮格蘸料 · 點擊放大" },
-      cat6: { src: "https://images.squarespace-cdn.com/content/v1/5e138fa11effc55c2dc12398/1583530399627-9MUQ3OPJDEGKWN9DS3BB/Hot%2BPot-Ring%2BRoll.jpg", fallback: "", label: "黃金響鈴與丸滑配菜 · 點擊放大" }
+<script>
+        const CATEGORY_STYLE = {
+      cat1: { hero: "hero-01.jpg", tint: "#F6E3DA" },
+      cat2: { hero: "hero-02.jpg", tint: "#DDEBEC" },
+      cat3: { hero: "hero-03.jpg", tint: "#E6EEDA" },
+      cat4: { hero: "hero-04.jpg", tint: "#F7E6CF" },
+      cat5: { hero: "hero-05.jpg", tint: "#F7EAD2" },
+      cat6: { hero: "hero-06.jpg", tint: "#F4E7D8" }
     };
 
     const MENU_DATA = [
       {
-        id: "cat1", num: "01", title: "肉類", sub: "手切鮮牛 · 雪白豚 · 走地鮮雞",
+        id: "cat1", num: "01", title: "肉類", sub: "",
         subs: [
           {
-            title: "1.1 牛肉（手切鮮）",
+            title: "1.1　牛肉（手切鮮・騸牯牛）",
             items: [
-              { code: "1.1.1", name: "手切牛三拼 300g", retail: 168, wholesale: 88 },
-              { code: "1.1.2", name: "吊龍心 · 牛頸脊 200g", retail: 148, wholesale: 88 },
-              { code: "1.1.3", name: "匙仁 · 牛坑瓜 200g", retail: 128, wholesale: 78 },
-              { code: "1.1.4", name: "五花肚 · 牛白肉 · 牛舌心 200g", retail: 108, wholesale: 68 },
-              { code: "1.1.5", name: "嫩牛肉 · 牛脖仁 200g", retail: 88, wholesale: 58 },
-              { code: "1.1.6", name: "黑柏葉 · 牛黃喉 · 牛板筋 · 牛骨髓 105g", retail: 58, wholesale: 25 }
+              { code: "1.1.1", name: "牛三拼（牛頸脊＋嫩牛肉＋吊龍心）300g", price: 158 },
+              { code: "1.1.2", name: "吊龍心 200g", price: 138 },
+              { code: "1.1.3", name: "牛頸脊 200g", price: 138 },
+              { code: "1.1.4", name: "牛極品 200g", price: 138 },
+              { code: "1.1.5", name: "牛舌心 200g", price: 99 },
+              { code: "1.1.6", name: "五花趾 100g", price: 88 },
+              { code: "1.1.7", name: "肉眼邊 100g", price: 88 },
+              { code: "1.1.8", name: "黑柏葉 · 牛黃喉 · 牛板筋 · 牛骨髓 105g", price: 58 },
             ]
           },
           {
-            title: "1.2 牛肉（凍品片）",
+            title: "1.2　牛肉（凍品片）",
             items: [
               { code: "1.2.1", name: "美國黑安格斯肩柳火鍋片", price: 58 },
               { code: "1.2.2", name: "極品牛三角肥牛片", price: 88 },
-              { code: "1.2.3", name: "平價肥牛片", price: null, sug: true }
+              { code: "1.2.3", name: "平價肥牛片", price: null, sug: true },
             ]
           },
           {
-            title: "1.3 羊肉",
+            title: "1.3　羊肉",
             items: [
               { code: "1.3.1", name: "紐西蘭 Silver Fern 草飼無添加羊肩肉片", price: 68 },
-              { code: "1.3.2", name: "平價羊肉卷／羊肉片", price: null, sug: true }
+              { code: "1.3.2", name: "平價羊肉卷／羊肉片", price: null, sug: true },
             ]
           },
           {
-            title: "1.4 豬肉（急凍）",
+            title: "1.4　豬肉（急凍）",
             items: [
               { code: "1.4.1", name: "日本鹿兒島雪白豬 肩片", price: 60 },
               { code: "1.4.2", name: "日本鹿兒島雪白豬 肉眼片", price: 60 },
               { code: "1.4.3", name: "日本鹿兒島雪白豬 腩片", price: 60 },
               { code: "1.4.4", name: "北海道花豚 豬梅肉片", price: 58 },
               { code: "1.4.5", name: "北海道花豚 豬腩片", price: 48 },
-              { code: "1.4.6", name: "新鮮豬潤 · 豬腰 · 豬粉腸（配胡椒豬肚湯）", price: null, sug: true }
+              { code: "1.4.6", name: "新鮮豬潤 · 豬腰 · 豬粉腸 （配胡椒豬肚湯）", price: null, sug: true },
             ]
           },
           {
-            title: "1.5 雞及雞鵝雜",
+            title: "1.5　雞及雞鵝雜",
             items: [
               { code: "1.5.1", name: "雞髀", price: 25 },
               { code: "1.5.2", name: "雞全翼", price: 6 },
@@ -934,64 +307,77 @@
               { code: "1.5.8", name: "雞子", price: null },
               { code: "1.5.9", name: "雞腸", price: null },
               { code: "1.5.10", name: "鵝腸", price: null },
-              { code: "1.5.11", name: "文昌雞／清遠雞／湛江雞（原隻 · 可切片）", price: 148 },
+              { code: "1.5.11", name: "文昌雞／清遠雞／湛江雞 （原隻 · 可切片）", price: 148 },
               { code: "1.5.12", name: "扇雞（原隻）", price: 190 },
               { code: "1.5.13", name: "脆皮無骨大扁雞", price: null },
               { code: "1.5.14", name: "脆皮無骨走地雞（無骨黃油雞）", price: null },
               { code: "1.5.15", name: "黃油雞斬件（一隻）", price: null },
-              { code: "1.5.16", name: "醉雞件", price: null }
+              { code: "1.5.16", name: "醉雞件", price: null },
             ]
           }
         ]
       },
       {
-        id: "cat2", num: "02", title: "海鮮類", sub: "黑虎蝦 · 熟蟹爪 · 桶蠔 · 脆肉鯇",
+        id: "cat2", num: "02", title: "海鮮類", sub: "",
         subs: [
           {
-            title: "2.1 蝦類",
+            title: "2.1　魚類",
             items: [
-              { code: "2.1.1", name: "黑虎蝦滑（急凍）", price: 32 },
-              { code: "2.1.2", name: "越南頂級黑虎蝦仁（急凍）", price: 85 },
-              { code: "2.1.3", name: "越南珍寶黑老虎蝦（急凍）", price: 98 },
-              { code: "2.1.4", name: "基圍蝦", price: null },
-              { code: "2.1.5", name: "海中蝦", price: null }
+              { code: "2.1.1", name: "海斑（約一斤）", price: "100/條" },
+              { code: "2.1.2", name: "懵仔魚", price: "110/斤" },
+              { code: "2.1.3", name: "桂花魚", price: "65–75/條" },
+              { code: "2.1.4", name: "白鱔", price: "110/斤" },
+              { code: "2.1.5", name: "生劏游水海黃立䱽（約 14 両）", price: "75/條" },
+              { code: "2.1.6", name: "黃花魚（約 8–9 両）", price: "45–50" },
+              { code: "2.1.7", name: "馬友魚（約 8–9 両）", price: "50–60" },
+              { code: "2.1.8", name: "烏頭魚（約 10–12 両）", price: "40–45" },
+              { code: "2.1.9", name: "鯇魚肉", price: "48/斤" },
+              { code: "2.1.10", name: "鯪魚", price: "35/條" },
+              { code: "2.1.11", name: "鯽魚", price: "40/條" },
+              { code: "2.1.12", name: "煲湯魚（約一斤）", price: "65/斤" },
+              { code: "2.1.13", name: "紅衫魚／青根魚／海𩶘魚 （視乎魚巿場供貨）", price: "時價" },
+              { code: "2.1.14", name: "石崇魚／石九公", price: "時價" },
             ]
           },
           {
-            title: "2.2 蟹類",
+            title: "2.2　蝦蟹類",
             items: [
-              { code: "2.2.1", name: "美國 BRYD 熟蟹爪肉（急凍）", price: 148 },
-              { code: "2.2.2", name: "蟹", price: null }
+              { code: "2.2.1", name: "海中蝦", price: "65/斤" },
+              { code: "2.2.2", name: "泰國大頭蝦", price: "98/斤" },
+              { code: "2.2.3", name: "花蟹（大）", price: "150/斤" },
+              { code: "2.2.4", name: "花蟹（細）", price: "110/斤" },
+              { code: "2.2.5", name: "三點蟹", price: "80/斤" },
             ]
           },
           {
-            title: "2.3 蠔",
+            title: "2.3　貝殼類",
             items: [
-              { code: "2.3.1", name: "桶蠔", price: null },
-              { code: "2.3.2", name: "桶蠔細", price: null }
+              { code: "2.3.1", name: "大連鮑魚（大）", price: "110/斤" },
+              { code: "2.3.2", name: "大連鮑魚（細）", price: "100/斤" },
+              { code: "2.3.3", name: "花甲王", price: "98/斤" },
+              { code: "2.3.4", name: "花甲", price: "60/斤" },
+              { code: "2.3.5", name: "沙白蜆", price: "45/斤" },
+              { code: "2.3.6", name: "花螺", price: "100/斤" },
+              { code: "2.3.7", name: "台山桶蠔（大 · 約 7 隻）", price: "75" },
+              { code: "2.3.8", name: "台山桶蠔（細 · 約 8–10 隻）", price: "65" },
             ]
           },
           {
-            title: "2.4 魚片",
+            title: "2.4　急凍海產（維持供應）",
             items: [
-              { code: "2.4.1", name: "脆肉鯇魚片", price: null },
-              { code: "2.4.2", name: "鯇魚片", price: null },
-              { code: "2.4.3", name: "黑魚片／海魚片（無骨滑身，火鍋店標配）", price: null, sug: true }
-            ]
-          },
-          {
-            title: "2.5 貝類",
-            items: [
-              { code: "2.5.1", name: "青口 · 蛤蜊 · 帶子（火鍋店常見三寶）", price: null, sug: true }
+              { code: "2.4.1", name: "黑虎蝦滑（急凍）", price: 32 },
+              { code: "2.4.2", name: "越南頂級黑虎蝦仁（急凍）", price: 85 },
+              { code: "2.4.3", name: "越南珍寶黑老虎蝦（急凍）", price: 98 },
+              { code: "2.4.4", name: "美國 BRYD 熟蟹爪肉（急凍）", price: 148 },
             ]
           }
         ]
       },
       {
-        id: "cat3", num: "03", title: "蔬菜類", sub: "時令葉菜 · 11款菇菌 · 清甜瓜果",
+        id: "cat3", num: "03", title: "蔬菜類", sub: "",
         subs: [
           {
-            title: "3.1 葉菜",
+            title: "3.1　葉菜",
             items: [
               { code: "3.1.1", name: "娃娃菜", price: 13 },
               { code: "3.1.2", name: "菠菜", price: 13 },
@@ -1002,11 +388,11 @@
               { code: "3.1.7", name: "通菜", price: 15 },
               { code: "3.1.8", name: "手摘西洋菜", price: 13 },
               { code: "3.1.9", name: "茼蒿", price: null, sug: true },
-              { code: "3.1.10", name: "冰菜", price: null, sug: true }
+              { code: "3.1.10", name: "冰菜", price: null, sug: true },
             ]
           },
           {
-            title: "3.2 菇菌（11 款及拼盤）",
+            title: "3.2　菇菌（11 款）",
             items: [
               { code: "3.2.1", name: "金菇", price: 10 },
               { code: "3.2.2", name: "蟹菇", price: 10 },
@@ -1019,79 +405,79 @@
               { code: "3.2.9", name: "特大啡菇", price: 18 },
               { code: "3.2.10", name: "白蘑菇", price: 18 },
               { code: "3.2.11", name: "啡菇", price: 18 },
-              { code: "3.2.12", name: "養生菇菌拼盤（配清湯／菌湯鍋）", price: null, sug: true }
+              { code: "3.2.12", name: "養生菇菌拼盤（配清湯／菌湯鍋）", price: null, sug: true },
             ]
           },
           {
-            title: "3.3 瓜果",
+            title: "3.3　瓜果",
             items: [
               { code: "3.3.1", name: "超甜黃粟米", price: 25 },
               { code: "3.3.2", name: "大冬瓜", price: 8 },
               { code: "3.3.3", name: "勝瓜", price: 14 },
               { code: "3.3.4", name: "老黃瓜", price: 18 },
-              { code: "3.3.5", name: "白蘿蔔（清湯牛骨／豬骨鍋湯底配搭）", price: null, sug: true },
-              { code: "3.3.6", name: "薯仔（番茄薯仔鍋主角）", price: null, sug: true }
+              { code: "3.3.5", name: "白蘿蔔（清湯牛骨／豬骨鍋配搭）", price: null, sug: true },
+              { code: "3.3.6", name: "薯仔（番茄薯仔鍋主角）", price: null, sug: true },
             ]
           }
         ]
       },
       {
-        id: "cat4", num: "04", title: "湯底", sub: "港式經典 · 滋補系 · 川式 · 特色",
+        id: "cat4", num: "04", title: "湯底", sub: "",
         subs: [
           {
-            title: "4.1 港式經典",
+            title: "4.1　港式經典",
             items: [
               { code: "4.1.1", name: "沙嗲湯底", price: null, sug: true },
               { code: "4.1.2", name: "豬骨煲", price: null, sug: true },
               { code: "4.1.3", name: "番茄薯仔湯", price: null, sug: true },
-              { code: "4.1.4", name: "胡椒豬肚湯", price: null, sug: true }
+              { code: "4.1.4", name: "胡椒豬肚湯", price: null, sug: true },
             ]
           },
           {
-            title: "4.2 滋補系",
+            title: "4.2　滋補系",
             items: [
               { code: "4.2.1", name: "花膠雞湯", price: null, sug: true },
               { code: "4.2.2", name: "椰子雞湯", price: null, sug: true },
-              { code: "4.2.3", name: "蟲草花杞子滑雞湯", price: null, sug: true }
+              { code: "4.2.3", name: "蟲草花杞子滑雞湯", price: null, sug: true },
             ]
           },
           {
-            title: "4.3 川式",
+            title: "4.3　川式",
             items: [
               { code: "4.3.1", name: "清油麻辣鍋（青花椒熬製）", price: null, sug: true },
-              { code: "4.3.2", name: "鴛鴦鍋（麻辣＋沙嗲）", price: null, sug: true }
+              { code: "4.3.2", name: "鴛鴦鍋（麻辣＋沙嗲）", price: null, sug: true },
             ]
           },
           {
-            title: "4.4 特色",
+            title: "4.4　特色",
             items: [
               { code: "4.4.1", name: "潮汕牛骨清湯", price: null, sug: true },
-              { code: "4.4.2", name: "卜卜蜆湯底", price: null, sug: true }
+              { code: "4.4.2", name: "卜卜蜆湯底", price: null, sug: true },
             ]
           }
         ]
       },
       {
-        id: "cat5", num: "05", title: "火鍋蘸料類", sub: "零售包／自助台（全部建議）",
+        id: "cat5", num: "05", title: "火鍋蘸料類", sub: "",
         subs: [
           {
-            title: "5.1–5.6 秘製醬料與辛香配料",
+            title: "5.1–5.6　秘製醬料與辛香配料",
             items: [
               { code: "5.1", name: "沙茶醬", price: null, sug: true },
               { code: "5.2", name: "花生醬", price: null, sug: true },
               { code: "5.3", name: "芝麻醬", price: null, sug: true },
               { code: "5.4", name: "豉油＋麻油", price: null, sug: true },
               { code: "5.5", name: "蒜蓉、蔥花、香菜、辣椒圈", price: null, sug: true },
-              { code: "5.6", name: "浙醋／辣油", price: null, sug: true }
+              { code: "5.6", name: "浙醋／辣油", price: null, sug: true },
             ]
           }
         ]
       },
       {
-        id: "cat6", num: "06", title: "其他", sub: "丸類 · 雲吞餃 · 粉麵 · 豆製品 · 炸物",
+        id: "cat6", num: "06", title: "其他", sub: "",
         subs: [
           {
-            title: "6.1 丸類",
+            title: "6.1　丸類",
             items: [
               { code: "6.1.1", name: "黑椒牛筋丸", price: 28 },
               { code: "6.1.2", name: "特級墨魚丸", price: 24 },
@@ -1106,19 +492,19 @@
               { code: "6.1.11", name: "晶華胡椒豬肚丸", price: 28 },
               { code: "6.1.12", name: "晶華蝦多多蝦餅", price: 40 },
               { code: "6.1.13", name: "台灣墨汁花枝丸", price: 18 },
-              { code: "6.1.14", name: "四丸拼盤（蝦丸 · 墨魚丸 · 鯪魚丸 · 牛丸）", price: null, sug: true }
+              { code: "6.1.14", name: "四丸拼盤 （蝦丸／墨魚丸／鯪魚丸／牛丸）", price: null, sug: true },
             ]
           },
           {
-            title: "6.2 餃子／雲吞／點心",
+            title: "6.2　餃子／雲吞／點心",
             items: [
-              { code: "6.2.1", name: "本地手工雲吞餃 12隻（韭菜/椰菜/粟米甘筍豬肉）", price: 40 },
+              { code: "6.2.1", name: "本地手工雲吞餃 12 隻 （韭菜／椰菜／粟米甘筍豬肉）", price: 40 },
               { code: "6.2.2", name: "鮮蝦雲吞", price: 60 },
-              { code: "6.2.3", name: "魚皮餃", price: null, sug: true }
+              { code: "6.2.3", name: "魚皮餃", price: null, sug: true },
             ]
           },
           {
-            title: "6.3 粉麵",
+            title: "6.3　粉麵",
             items: [
               { code: "6.3.1", name: "蒟蒻芋絲", price: 9 },
               { code: "6.3.2", name: "蒟蒻烏冬／粉皮", price: 12 },
@@ -1128,35 +514,34 @@
               { code: "6.3.6", name: "日式拉麵（包裝）", price: 14 },
               { code: "6.3.7", name: "新鮮日式拉麵", price: 24 },
               { code: "6.3.8", name: "日本真打稻庭風烏冬", price: 33 },
-              { code: "6.3.9", name: "公仔麵／出前一丁", price: null, sug: true }
+              { code: "6.3.9", name: "公仔麵／出前一丁", price: null, sug: true },
             ]
           },
           {
-            title: "6.4 豆製品",
+            title: "6.4　豆製品",
             items: [
               { code: "6.4.1", name: "日本井村屋絹豆腐", price: 20 },
               { code: "6.4.2", name: "豆卜", price: 20 },
               { code: "6.4.3", name: "腐竹（小）", price: 20 },
               { code: "6.4.4", name: "腐竹（大）", price: 38 },
               { code: "6.4.5", name: "蜂巢豆腐（616 套餐配菜）", price: null, sug: true },
-              { code: "6.4.6", name: "鮮鴨血（麻辣鍋標配，無老鍋無限加概念）", price: null, sug: true },
-              { code: "6.4.7", name: "冰豆腐（台式麻辣鍋配）", price: null, sug: true }
+              { code: "6.4.6", name: "鮮鴨血（麻辣鍋標配）", price: null, sug: true },
+              { code: "6.4.7", name: "冰豆腐（台式麻辣鍋配）", price: null, sug: true },
             ]
           },
           {
-            title: "6.5 炸物／小食",
+            title: "6.5　炸物／小食",
             items: [
               { code: "6.5.1", name: "炸魚皮", price: null, sug: true },
               { code: "6.5.2", name: "響鈴", price: null, sug: true },
               { code: "6.5.3", name: "咖喱魚蛋", price: null, sug: true },
-              { code: "6.5.4", name: "懷舊魚肉燒賣", price: null, sug: true }
+              { code: "6.5.4", name: "懷舊魚肉燒賣", price: null, sug: true },
             ]
           }
         ]
       }
     ];
 
-    let priceMode = "retail";
     let pickupMethod = "西貢街市P1鋪自取";
     const cart = {};
     const itemMap = {};
@@ -1164,14 +549,17 @@
 
     MENU_DATA.forEach(cat => cat.subs.forEach(sub => sub.items.forEach(it => { itemMap[it.code] = it; })));
 
-    function getUnitPrice(it) {
-      if (it.retail !== undefined) return priceMode === "wholesale" ? it.wholesale : it.retail;
-      return it.price;
-    }
+    function getUnitPrice(it) { return it.price; }
 
+    // only numbers are summed; 時價 / per-jin prices stay 待門市確認
+    function isNumericPrice(p) { return typeof p === 'number' && isFinite(p); }
+    function priceTag(p) {
+      if (p === null || p === undefined) return '待報價';
+      if (isNumericPrice(p)) return 'HK$' + p;
+      return String(p).charAt(0) === '時' ? '時價' : 'HK$' + p;
+    }
     function formatPriceLabel(it) {
-      if (it.retail !== undefined) return `HK$${getUnitPrice(it)}（批$${it.wholesale}／零$${it.retail}）`;
-      return it.price !== null ? `HK$${it.price}` : "待門市報價";
+      return priceTag(getUnitPrice(it));
     }
 
     function showToast(msg) {
@@ -1214,17 +602,6 @@
       const tick = row.querySelector(".tick-box");
       tick.classList.toggle("checked", isChecked);
       tick.textContent = isChecked ? "✓" : "";
-    }
-
-    function setPriceMode(mode) {
-      priceMode = mode;
-      document.getElementById("btnRetail").classList.toggle("active", mode === "retail");
-      document.getElementById("btnWholesale").classList.toggle("active", mode === "wholesale");
-      document.querySelectorAll(".item-row[data-code]").forEach(row => {
-        const it = itemMap[row.dataset.code];
-        if (it) row.querySelector(".item-price").textContent = formatPriceLabel(it);
-      });
-      updateSummary(false);
     }
 
     function toggleTick(code, el) {
@@ -1274,10 +651,6 @@
       el.classList.add("active");
     }
 
-    function openLightbox(src) {
-      document.getElementById("lightboxImg").src = src;
-      document.getElementById("lightbox").classList.add("open");
-    }
 
     function observeCards() {
       const cards = document.querySelectorAll(".cat-card");
@@ -1306,77 +679,58 @@
     }
 
     function renderMenu() {
-      const q = document.getElementById("searchInput").value.trim().toLowerCase();
-      const container = document.getElementById("menuContainer");
-      let html = "";
+  const q = document.getElementById("searchInput").value.trim().toLowerCase();
+  const container = document.getElementById("menuContainer");
+  let html = "";
 
-      MENU_DATA.forEach(cat => {
-        let subsHtml = "";
-        cat.subs.forEach(sub => {
-          const filtered = sub.items.filter(it => !q || it.name.toLowerCase().includes(q) || it.code.includes(q));
-          if (filtered.length === 0) return;
-
-          subsHtml += `<div class="subcat-bar"><span>${sub.title}</span><span class="col-hint">點擊方格 Tick / 改份數</span></div><div class="items-grid">`;
-          filtered.forEach(it => {
-            const qty = cart[it.code] || 0;
-            const isChecked = qty > 0;
-            const p = getUnitPrice(it);
-            const rowCls = ["item-row", it.sug ? "suggested" : "", isChecked ? "selected" : ""].filter(Boolean).join(" ");
-            subsHtml += `
-              <div class="${rowCls}" data-code="${it.code}">
-                <div class="item-info" onclick="toggleTick('${it.code}', this.parentElement.querySelector('.tick-box'))">
-                  <div class="item-top">
-                    <span class="item-code">${it.code}</span>
-                    <span class="item-name">${it.name}</span>
-                    ${it.sug ? '<span class="badge-sug">建議</span>' : ''}
-                  </div>
-                  <div class="item-price ${p === null ? 'tbd' : ''}">${formatPriceLabel(it)}</div>
-                </div>
-                <div class="item-ctrl">
-                  <div class="qty-stepper ${isChecked ? 'show' : ''}">
-                    <button type="button" onclick="changeQty('${it.code}', -1, this)">−</button>
-                    <span class="qty-val">${qty}</span>
-                    <button type="button" onclick="changeQty('${it.code}', 1, this)">+</button>
-                  </div>
-                  <div class="tick-box ${isChecked ? 'checked' : ''}" onclick="toggleTick('${it.code}', this)">${isChecked ? '✓' : ''}</div>
-                </div>
-              </div>`;
-          });
-          subsHtml += `</div>`;
-        });
-
-        if (subsHtml) {
-          const photo = CATEGORY_PHOTOS[cat.id];
-          const photoHtml = photo ? `
-            <div class="cat-photo-wrap" onclick="openLightbox(this.querySelector('img').src)">
-              <img src="${photo.src}" alt="${cat.title}" ${photo.fallback ? `onerror="this.src='${photo.fallback}'"` : ""} />
-              <span class="cat-photo-badge">📷 ${photo.label}</span>
-            </div>` : "";
-          html += `
-            <section class="cat-card visible" id="${cat.id}">
-              <div class="cat-header">
-                <div class="cat-header-left">
-                  <span class="cat-num">${cat.num}</span>
-                  <span class="cat-title">${cat.title}</span>
-                </div>
-                <span class="cat-sub">${cat.sub}</span>
-              </div>
-              ${photoHtml}
-              ${subsHtml}
-            </section>`;
-        }
+  MENU_DATA.forEach(cat => {
+    const bg = CATEGORY_STYLE[cat.id] || { hero: "", tint: "transparent" };
+    let rows = "";
+    cat.subs.forEach(sub => {
+      const filtered = sub.items.filter(it => !q || it.name.toLowerCase().includes(q) || it.code.includes(q));
+      if (filtered.length === 0) return;
+      rows += `<div class="subband">${sub.title}</div><div class="items-grid">`;
+      filtered.forEach(it => {
+        const qty = cart[it.code] || 0;
+        const isChecked = qty > 0;
+        const p = getUnitPrice(it);
+        const rowCls = ["item-row", it.sug ? "suggested" : "", isChecked ? "selected" : ""].filter(Boolean).join(" ");
+        rows += `
+          <div class="${rowCls}" data-code="${it.code}">
+            <span class="item-code">${it.code}</span>
+            <span class="item-name" onclick="toggleTick('${it.code}', this.parentElement.querySelector('.tick-box'))">${it.name}${it.sug ? '<i class="badge-sug">建議</i>' : ''}</span>
+            <span class="item-price ${p === null ? 'tbd' : ''}">${formatPriceLabel(it)}</span>
+            <span class="item-ctrl">
+              <span class="qty-stepper ${isChecked ? 'show' : ''}">
+                <button type="button" onclick="changeQty('${it.code}', -1, this)">−</button>
+                <span class="qty-val">${qty}</span>
+                <button type="button" onclick="changeQty('${it.code}', 1, this)">+</button>
+              </span>
+              <span class="tick-box ${isChecked ? 'checked' : ''}" onclick="toggleTick('${it.code}', this)">${isChecked ? '✓' : ''}</span>
+            </span>
+          </div>`;
       });
+      rows += `</div>`;
+    });
+    if (!rows) return;
+    html += `
+        <section class="cat-card visible" id="${cat.id}">
+          <div class="cat-bg" style="background-image:url('${bg.hero}');--tint:${bg.tint}"></div>
+          <div class="band"><b class="chip">${cat.num}</b><span class="ctitle">${cat.title}</span></div>
+          ${rows}
+        </section>`;
+  });
 
-      container.innerHTML = html || `<p style="text-align:center;color:#666;padding:30px;">找不到符合「${q}」的食材</p>`;
-      observeCards();
-    }
+  container.innerHTML = html || `<p class="empty">找不到符合「${q}」的食材</p>`;
+  observeCards();
+}
 
     function updateSummary(animate = true) {
       let totalQty = 0, totalAmt = 0, hasTbd = false;
       Object.entries(cart).forEach(([code, qty]) => {
         totalQty += qty;
         const p = getUnitPrice(itemMap[code]);
-        if (p !== null) totalAmt += p * qty; else hasTbd = true;
+        if (isNumericPrice(p)) totalAmt += p * qty; else hasTbd = true;
       });
       const is90 = document.getElementById("firstOrderDiscount").checked;
       const finalAmt = is90 ? Math.round(totalAmt * 0.9 * 10) / 10 : totalAmt;
@@ -1388,7 +742,7 @@
         totalEl.classList.add("bump");
       }
       document.getElementById("bottomSub").textContent = totalQty > 0
-        ? `計價：${priceMode === 'wholesale' ? '手切牛批發價' : '標準零售價'}${is90 ? ' · 已套 9 折優惠' : ''}`
+        ? `計價：零售價${is90 ? ' · 已套 9 折優惠' : ''}`
         : "點擊右側正方形「□」即可直接 Tick 落單";
       document.getElementById("openOrderBtn").disabled = totalQty === 0;
       renderCartPreview(finalAmt, hasTbd, is90);
@@ -1401,7 +755,7 @@
       const lines = entries.map(([code, qty]) => {
         const it = itemMap[code];
         const p = getUnitPrice(it);
-        return `<div>☑ <b>${it.code} ${it.name}</b> × ${qty} 份（${p !== null ? '$' + p * qty : '待報價'}）</div>`;
+        return `<div>☑ <b>${it.code} ${it.name}</b> × ${qty} 份（${isNumericPrice(p) ? 'HK$' + p * qty : priceTag(p)}）</div>`;
       });
       lines.push(`<div style="margin-top:6px;padding-top:6px;border-top:1px dashed #ccc;color:#B8291E;font-weight:800;">預計合計：HK$${finalAmt}${is90 ? '（已計 9 折）' : ''}${hasTbd ? ' ＋ 待報價品項' : ''}</div>`);
       el.innerHTML = lines.join("");
@@ -1431,15 +785,14 @@
         const it = itemMap[code];
         const p = getUnitPrice(it);
         totalQty += qty;
-        if (p !== null) totalAmt += p * qty; else hasTbd = true;
-        itemLines.push(`☑ ${it.code} ${it.name} × ${qty}（${p !== null ? 'HK$' + (p * qty) : '待報價'}）`);
+        if (isNumericPrice(p)) totalAmt += p * qty; else hasTbd = true;
+        itemLines.push(`☑ ${it.code} ${it.name} × ${qty}（${isNumericPrice(p) ? 'HK$' + p * qty : priceTag(p)}）`);
       });
       const finalAmt = is90 ? Math.round(totalAmt * 0.9 * 10) / 10 : totalAmt;
       return [
         "【🍲 江記 KK MART 打邊爐點心紙訂單】",
         `取貨方式：${pickupMethod}`,
         `顧客姓名：${name} ｜ 電話：${phone}`,
-        `計價模式：${priceMode === "wholesale" ? "批發價" : "零售價"}`,
         "——————————",
         ...itemLines,
         "——————————",

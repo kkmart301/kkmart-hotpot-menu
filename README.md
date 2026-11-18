@@ -1,5 +1,19 @@
-江記 KK MART · 精選打邊爐食材點心紙（手機版網頁）
+# 江記 KK MART · 打邊爐食材點心紙（手機版）
 
-線上：https://kkmart301.github.io/kkmart-hotpot-menu/
+與 A3 印刷版同一套視覺：奶油紙底 #FDFCF4、置中報頭（logo／標題／中英副題）、
+一級標題（深綠帶＋紅章＋金線，置中）、二級標題（米色帶，置中）、
+每個分類背後一張手繪大圖＋分類色調、右側份數方格。價格只有零售價（已取消批發價）。
 
-單檔靜態頁（index.html），圖片為 hero-hotpot.jpg / beef-platter.jpg，其餘分類圖另用外鏈。
+## 檔案
+- `index.html` — 單頁應用（無外部依賴，資料在 `MENU_DATA`）
+- `logo.png` — 江記 logo（透明底）
+- `hero-01..06.jpg` — 六類手繪底圖（由 A3 版 hero_*.png 縮成 900px）
+- `hero-hotpot.jpg` / `beef-platter.jpg` — 舊版實拍大相，已不再引用
+
+## 資料來源
+`MENU_DATA` 由 `outputs/hotpot-ordersheet-2026-11-18/menu_data.py` 生成，與印刷版同源：
+148 項、11 月海鮮 Vol.1、騸牯牛 7 款統一價（$88／$99／$138／$158）、建議標記。
+
+## 行為
+點方格 = 加 1 份並出現 −/+ ；再點方格 = 取消。底部即時合計；
+按斤両／時價品項不計入估算，只標示「(＋待報價)」。
